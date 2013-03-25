@@ -12,6 +12,9 @@ Future
 I still think it is useful and has potential in other projects as a starting point. So, I am placing the old v1.55 code here, as there was no original public source-managed repository of their code and I couldn't find anyone else with a submission. Hopefully, as the code was released under GPL that is acceptable, and maybe some others will fork and add to the features, I am happy to receive pull requests etc. I intend to use it for a few demo projects of my own and will probably put them in a different branch...
 
 
+Website
+=======
+I copied the entire website using wget "wget -k -K  -E -r -l 10 -p -N -F --restrict-file-names=windows -nH" in order to preserve the examples pages in case the online version ceases at some point (currently the domain is set to renew in 2014). I understand that these materials may no be under the GPL license of the source code and so will remove it at the request of an original author unless they do not have objections.
 
 
 Original License
