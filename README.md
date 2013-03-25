@@ -9,7 +9,7 @@ The original software was about to release version 2 (https://twitter.com/jsPhyl
 
 Future
 ======
-I still think it is useful and has potential in other projects as a starting point. So, I am placing the old v1.55 code here, as there was no original source-managed repository of their code. Hopefully, as the code was released under GPL that is acceptable and maybe some others will fork and add to the features. I intend to use it for a few demo projects of my own and will probably put them in a different branch...
+I still think it is useful and has potential in other projects as a starting point. So, I am placing the old v1.55 code here, as there was no original public source-managed repository of their code and I couldn't find anyone else with a submission. Hopefully, as the code was released under GPL that is acceptable, and maybe some others will fork and add to the features, I am happy to receive pull requests etc. I intend to use it for a few demo projects of my own and will probably put them in a different branch...
 
 
 
