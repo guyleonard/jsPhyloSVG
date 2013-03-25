@@ -5,7 +5,7 @@ jsPhyloSVG is an open-source javascript library specifically built for rendering
 
 Discussion
 ==========
-The original software was about to release version 2 (https://twitter.com/jsPhyloSVG/status/169180192361811968) back in February 2012. However, nothing was released and all communication via their twitter ceased. Rod Page and I briefly discussed the idea they might have "sold out" to Elsevier (http://iphylo.blogspot.co.uk/2012/12/elsevier-articles-have-interactive.html#comment-730119264) and a promised (via email) early v2 version never surfaced.
+The original software was about to release version 2 (https://twitter.com/jsPhyloSVG/status/169180192361811968) back in February 2012. However, nothing was released and all communication via their twitter ceased. Rod Page and I briefly discussed the idea they might have "sold out" to Elsevier (http://iphylo.blogspot.co.uk/2012/12/elsevier-articles-have-interactive.html#comment-730119264) and a promised (via email) early v2 draft never surfaced.
 
 Future
 ======
@@ -14,7 +14,7 @@ I still think it is useful and has potential in other projects as a starting poi
 
 
 
-Original Licence
+Original License
 ================
 
 This software is distributed under the GPL License.
