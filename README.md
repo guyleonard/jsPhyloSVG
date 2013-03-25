@@ -7,6 +7,8 @@ Discussion
 ==========
 The original software was about to release version 2 (https://twitter.com/jsPhyloSVG/status/169180192361811968) back in February 2012. However, nothing was released and all communication via their twitter ceased. Rod Page and I briefly discussed the idea they might have "sold out" to Elsevier (http://iphylo.blogspot.co.uk/2012/12/elsevier-articles-have-interactive.html#comment-730119264) and a promised (via email) early v2 version never surfaced.
 
+Future
+======
 I still think it is useful and has potential in other projects as a starting point. So, I am placing the old v1.55 code here, as there was no original source-managed repository of their code. Hopefully, as the code was released under GPL that is acceptable and maybe some others will fork and add to the features. I intend to use it for a few demo projects of my own and will probably put them in a different branch...
 
 
