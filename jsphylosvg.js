@@ -646,6 +646,9 @@ Smits.PhyloCanvas.NewickParse.prototype = {
 								Smits.PhyloCanvas.Render.Parameters.integratedBinaryCharts.push(charts[i][j]);								
 							} else if (charts[i][j].type == "bar"){
 								charts[i][j].chart = i;
+                                if (Smits.PhyloCanvas.Render.Parameters.barCharts.length == 1){
+                                    Smits.PhyloCanvas.Render.Parameters.barCharts.shift();
+                                }
 								Smits.PhyloCanvas.Render.Parameters.barCharts.push(charts[i][j]);
 							}
 						}
