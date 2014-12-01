@@ -646,6 +646,9 @@ Smits.PhyloCanvas.NewickParse.prototype = {
 								Smits.PhyloCanvas.Render.Parameters.integratedBinaryCharts.push(charts[i][j]);								
 							} else if (charts[i][j].type == "bar"){
 								charts[i][j].chart = i;
+                                if (Smits.PhyloCanvas.Render.Parameters.barCharts.length == 1){
+                                    Smits.PhyloCanvas.Render.Parameters.barCharts.shift();
+                                }
 								Smits.PhyloCanvas.Render.Parameters.barCharts.push(charts[i][j]);
 							}
 						}
@@ -1574,6 +1577,10 @@ Smits.PhyloCanvas.Render.SVG.prototype = {
 				outerRadius = renderBarChart(outerX, barCharts[i].chart, barCharts[i]);
 			}
 		}				
+        
+        // Clear vars so they don't get pushed to if rerender
+        labelsHold = [];
+        bgLabelsHold = [];
 
 	}
 }();
@@ -2099,6 +2106,10 @@ Smits.PhyloCanvas.Render.Phylogram.prototype = {
 				outerRadius = renderBarChart(outerRadius, barCharts[i].chart, barCharts[i]);
 			}
 		}		
+
+        // Clear vars so they don't get pushed to if rerender
+        labelsHold = [];
+        bgLabelsHold = [];
 
 	}
 })();
