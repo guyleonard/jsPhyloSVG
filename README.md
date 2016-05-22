@@ -1,14 +1,13 @@
-jsPhyloSVG
-----------
+# jsPhyloSVG #
 
 jsPhyloSVG is an open-source javascript library specifically built for rendering highly-extensible, customizable phylogenetic trees.  jsPhyloSVG can render complex trees, yet offers a simple method to do so. It leverages the recent XML schema definition specified for phylogenetic trees, phyloXML.
 
-Discussion
-==========
+## Discussion ##
+
 The original software was about to release version 2 (https://twitter.com/jsPhyloSVG/status/169180192361811968) back in February 2012. However, nothing was released and all communication via their twitter ceased. Rod Page and I briefly discussed the idea they might have "sold out" to Elsevier (http://iphylo.blogspot.co.uk/2012/12/elsevier-articles-have-interactive.html#comment-730119264) and a promised (via email) early v2 draft never surfaced.
 
-Future
-======
+## Future ##
+
 I still think it is useful and has potential in other projects as a starting point. So, I am placing the old v1.55 code here, as there was no original public source-managed repository of their code and I couldn't find anyone else with a submission. Hopefully, as the code was released under GPL that is acceptable, and maybe some others will fork and add to the features, I am happy to receive pull requests etc. I intend to use it for a few demo projects of my own and will probably put them in a different branch...
 
 ### jsPhyloSVG-Color ###
@@ -64,13 +63,12 @@ and run `python -m SimpleHTTPServer` to set up a server. Then navigate
 to the `color.html` page in Firefox (Chrome doesn't want to render the
 javascript) and you can see this in action.
 
-Website
-=======
+## Website ##
+
 I copied the entire website using wget "wget -k -K  -E -r -l 10 -p -N -F --restrict-file-names=windows -nH" in order to preserve the examples pages in case the online version ceases at some point (currently the domain is set to renew in 2014). I understand that these materials may no be under the GPL license of the source code and so will remove it at the request of an original author unless they do not have objections.
 
 
-Original License
-================
+## Original License ##
 
 This software is distributed under the GPL License.
 
