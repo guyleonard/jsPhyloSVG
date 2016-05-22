@@ -465,7 +465,7 @@ Smits.PhyloCanvas.NewickParse.prototype = {
 		    node.len = 0.0001;
 		}
 	    }
-            if(clade.color) {
+            if(clade.color) { // RMM
                 node.red   = clade.color[0].red[0].Text;
                 node.green = clade.color[0].green[0].Text;
                 node.blue  = clade.color[0].blue[0].Text;
@@ -473,6 +473,11 @@ Smits.PhyloCanvas.NewickParse.prototype = {
                 node.red   = 0;
                 node.green = 0;
                 node.blue  = 0;
+            }
+            if(clade.property &&
+               clade.property[0].applies_to == "node" &&
+               clade.property[0].ref == "style:font_color") {
+                node.font_color_hex = clade.property[0].Text
             }
 	    if(clade.name){
 		node.type = 'label';
@@ -1035,7 +1040,8 @@ Smits.PhyloCanvas.NexmlParse.prototype = {
     },
 
     highlightedEdgeCircle : {
-	"fill": 	'red'
+	"fill": 	'black',
+        "stroke":       'black'
     },
 
     barChart : {
@@ -1125,17 +1131,20 @@ Smits.PhyloCanvas.NexmlParse.prototype = {
 	} else {
 	    var circleObject = params.svg.draw(
 		new Smits.PhyloCanvas.Render.Circle(
-		    params.x, params.y, 5,
+		    params.x, params.y, 4,
 		    { attr: Smits.PhyloCanvas.Render.Style.highlightedEdgeCircle }
 		)
 	    );
 	    params.node.edgeCircleHighlight = circleObject[0];
 	}
-	params.textEl.attr({ fill: 'red' });
+	// params.textEl.attr({ fill: 'red' });
+	params.textEl.attr({});
     },
     mouseRollOut : function(params) {
 	params.node.edgeCircleHighlight.hide();
-	params.textEl.attr({ fill: '#000' });
+	// params.textEl.attr({ fill: '#000' });
+        params.textEl.attr({});
+
     },
 
     set : function(param, value, treeType){
@@ -1159,7 +1168,6 @@ Smits.PhyloCanvas.NexmlParse.prototype = {
 	this.attr = Smits.PhyloCanvas.Render.Style.line;
 
         this.attr.stroke = ["rgb(", r, ",", g, ",", b, ")"].join("");
-        console.log(this.attr.stroke);
 
 	this.x1 = x1;
 	this.x2 = x2;
@@ -1247,7 +1255,8 @@ Smits.PhyloCanvas.Render.SVG.prototype = {
 		var path = this.svg.path(instructs[i].path).attr(instructs[i].attr);
 	    } else if(instructs[i].type == 'circle'){
 		var path = this.svg.circle(instructs[i].x, instructs[i].y, instructs[i].radius).attr({
-		    "stroke": 'red'
+		    "stroke": 'black',
+                    "fill":   'black'
 		});
 	    } else {
 		var text = this.svg.text(instructs[i].x, instructs[i].y, instructs[i].text).attr(Smits.PhyloCanvas.Render.Style.text);
@@ -1275,7 +1284,8 @@ Smits.PhyloCanvas.Render.SVG.prototype = {
 	    obj = this.svg.path(instruct.path).attr(instruct.attr);
 	} else if(instruct.type == 'circle'){
 	    obj = this.svg.circle(instruct.x, instruct.y, instruct.radius).attr({
-		"stroke": 'red'
+		"stroke": 'black',
+                "fill":   'black'
 	    });
 	} else if(instruct.type == 'text'){
 	    obj = this.svg.text(instruct.x, instruct.y, instruct.text).attr(Smits.PhyloCanvas.Render.Style.text);
@@ -1338,6 +1348,13 @@ Smits.PhyloCanvas.Render.SVG.prototype = {
 		if(node.name){ // draw bootstrap values
 		    var attr = {};
 		    attr = Smits.PhyloCanvas.Render.Style.getStyle('bootstrap', 'text');
+
+                    if(node.font_color_hex) {
+                        attr.fill = node.font_color_hex;
+                    } else {
+                        attr.fill = "#000000";
+                    }
+
 		    if(node.uri) { attr.href = node.uri };
 		    if(node.description) {attr.title = node.description };
 		    if(node.level == 0){
@@ -1411,11 +1428,18 @@ Smits.PhyloCanvas.Render.SVG.prototype = {
 		    );
 		}
 
-		if(node.name){
+		if(node.name){ // non bootsrap node names
 		    var attr = {};
 		    if(node.style){
 			attr = Smits.PhyloCanvas.Render.Style.getStyle(node.style, 'text');
 		    }
+
+                    if(node.font_color_hex) {
+                        attr.fill = node.font_color_hex;
+                    } else {
+                        attr.fill = "#000000";
+                    }
+
 		    attr["text-anchor"] = 'start';
 		    if(node.uri) { attr.href = node.uri };
 		    if(node.description) {attr.title = node.description };
@@ -1795,6 +1819,13 @@ Smits.PhyloCanvas.Render.Phylogram.prototype = {
 		if(node.style){
 		    Smits.Common.apply(attr, Smits.PhyloCanvas.Render.Style.getStyle(node.style, 'text'));
 		}
+
+                if(node.font_color_hex) {
+                    attr.fill = node.font_color_hex;
+                } else {
+                    attr.fill = "#000000";
+                }
+
 		attr["text-anchor"] = alignment;
 		if(node.uri) { attr.href = node.uri };
 		if(node.description) {attr.title = node.description };
@@ -1964,6 +1995,12 @@ Smits.PhyloCanvas.Render.Phylogram.prototype = {
 		    if(!textAttr["text-anchor"]){
 			textAttr["text-anchor"] = "middle";
 		    }
+
+                    if(node.font_color_hex) {
+                        attr.fill = node.font_color_hex;
+                    } else {
+                        attr.fill = "#000000";
+                    }
 
 		    var binText = svg.draw(
 			new Smits.PhyloCanvas.Render.Text(
